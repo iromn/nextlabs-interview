@@ -1,29 +1,4 @@
-# pricing-project
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
+# NextLabsInterview
 
 ### Section C
 
@@ -62,3 +37,28 @@ I would follow the below steps:
 7. Privacy Policy: Clearly communicate your data privacy practices to users through a privacy policy. Assure them that their data will be encrypted and stored securely, and outline the measures you have taken to protect their information.
 8. Compliance: Ensure compliance with applicable data protection regulations, such as the General Data Protection Regulation (GDPR) or any other relevant laws specific to your jurisdiction. Follow the necessary guidelines and procedures to protect user data and privacy.
 ```
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
