@@ -124,7 +124,7 @@ export default {
   computed: {
     sortData() {
       var temp = this.folderData;
-      temp.sort((a, b) => b.type.localeCompare(a.type));
+      // temp.sort((a, b) => b.type.localeCompare(a.type));
       return temp;
     },
   },
