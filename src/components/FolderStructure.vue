@@ -47,36 +47,36 @@ export default {
   data() {
     return {
       data: [
-        {
-          name: "Folder 1",
-          type: "folder",
-          subfolder: [
-            {
-              name: "Folder 3",
-              type: "folder",
-              subfolder: [
-                { name: "15523", type: "file", subfolder: [], id: 6 },
-                {
-                  name: "child",
-                  type: "folder",
-                  subfolder: [
-                    { name: "ssss", type: "folder", subfolder: [], id: 8 },
-                  ],
-                  id: 7,
-                },
-              ],
-              id: 4,
-            },
-          ],
-          id: 1,
-        },
-        {
-          name: "Folder 2",
-          type: "folder",
-          subfolder: [{ name: "123", type: "file", subfolder: [], id: 5 }],
-          id: 2,
-        },
-        { name: "File 1.txt", type: "file", subfolder: [], id: 3 },
+        // {
+        //   name: "Folder 1",
+        //   type: "folder",
+        //   subfolder: [
+        //     {
+        //       name: "Folder 3",
+        //       type: "folder",
+        //       subfolder: [
+        //         { name: "15523", type: "file", subfolder: [], id: 6 },
+        //         {
+        //           name: "child",
+        //           type: "folder",
+        //           subfolder: [
+        //             { name: "ssss", type: "folder", subfolder: [], id: 8 },
+        //           ],
+        //           id: 7,
+        //         },
+        //       ],
+        //       id: 4,
+        //     },
+        //   ],
+        //   id: 1,
+        // },
+        // {
+        //   name: "Folder 2",
+        //   type: "folder",
+        //   subfolder: [{ name: "123", type: "file", subfolder: [], id: 5 }],
+        //   id: 2,
+        // },
+        // { name: "File 1.txt", type: "file", subfolder: [], id: 3 },
       ],
       folderName: "",
       fileName: "",
