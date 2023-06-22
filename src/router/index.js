@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import FolderStructureView from '../views/FolderStructureView.vue'
 import PricingView from '../views/PricingView.vue'
 import LazyLoadingView from '../views/LazyLoadingView.vue'
+import MakeetooAPIView from '../views/MakeetooAPIView.vue'
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     path: '/folderStructure',
     name: 'folderStructure',
     component: FolderStructureView
+  },
+  {
+    path: '/APIfetch',
+    name: 'APIfetch',
+    component: MakeetooAPIView
   },
   {
     path: '/pricing',

@@ -2,7 +2,7 @@
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <div v-if="showPopUp">
       <PopUp @close="hidePopUp"></PopUp>
-      <div class="overlay" @click="togglePopUp" ></div>
+      <div class="overlay" @click="togglePopUp"></div>
     </div>
     <h1 class="display-4">Pricing</h1>
     <p class="lead">
@@ -51,7 +51,11 @@
             <li>Priority email support</li>
             <li>Help center access</li>
           </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">
+          <button
+            type="button"
+            class="btn btn-lg btn-block btn-primary"
+            @click="togglePopUp"
+          >
             Get started
           </button>
         </div>
@@ -70,7 +74,11 @@
             <li>Phone and email support</li>
             <li>Help center access</li>
           </ul>
-          <button type="button" class="btn btn-lg btn-block btn-primary">
+          <button
+            type="button"
+            class="btn btn-lg btn-block btn-primary"
+            @click="togglePopUp"
+          >
             Contact us
           </button>
         </div>

@@ -3,6 +3,7 @@
       <h5 class="my-0 mr-md-auto font-weight-normal links" @click="navigate('/')">Next Labs</h5>
       <nav class="my-2 my-md-0 mr-md-3">
         <label class="p-2 text-dark links" @click="navigate('/pricing')">Pricing </label>
+        <label class="p-2 text-dark links" @click="navigate('/APIfetch')">Maakeetoo API fetch</label>
         <label class="p-2 text-dark links" @click="navigate('/folderStructure')">Folder Structure</label>
         <label class="p-2 text-dark links" @click="navigate('/lazyLoading')">Lazy Loading</label>
       </nav>

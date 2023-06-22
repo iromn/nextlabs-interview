@@ -11,6 +11,8 @@
     <h5 @click="navigate('/pricing')">Pricing</h5>
     <h5 @click="navigate('/folderStructure')">Folder Structure</h5>
     <h5 @click="navigate('/lazyLoading')">Lazy Loading</h5>
+
+    <h4 style="font-weight: bold">Note:</h4>
   </div>
 </template>
 

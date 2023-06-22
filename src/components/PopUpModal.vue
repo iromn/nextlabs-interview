@@ -1,5 +1,8 @@
 <template>
   <div class="popup-form">
+    <div class="loader" v-if="loading">
+      <div class="justify-content-center jimu-primary-loading"></div>
+    </div>
     <form v-on:submit.prevent="handleSubmit">
       <button class="close-btn" @click.prevent="$emit('close')">
         <span class="close-icon">&times;</span>
@@ -106,6 +109,7 @@
   </div>
 </template>
 <script>
+import Swal from "sweetalert2";
 import axios from "axios";
 export default {
   data() {
@@ -115,6 +119,7 @@ export default {
         email: "",
         comments: "",
       },
+      loading: false,
     };
   },
   mounted() {
@@ -127,34 +132,33 @@ export default {
       var free = document.getElementById("free");
       var pro = document.getElementById("pro");
       var enterprise = document.getElementById("enterprise");
-      if(this.value<20){
-        free.classList.add('highlight');
-        pro.classList.remove('highlight');
-        enterprise.classList.remove('highlight');
-        free.classList.remove('box-shadow');
-        pro.classList.add('box-shadow');
-        enterprise.classList.add('box-shadow');
-      }
-      else if(this.value>=20 && this.value<30){
-        free.classList.remove('highlight');
-        pro.classList.add('highlight');
-        enterprise.classList.remove('highlight');
-        free.classList.add('box-shadow');
-        pro.classList.remove('box-shadow');
-        enterprise.classList.add('box-shadow');
-      }
-      else if(this.value>=30 && this.value<=40){
-        free.classList.remove('highlight');
-        pro.classList.remove('highlight');
-        enterprise.classList.add('highlight');
-        free.classList.add('box-shadow');
-        pro.classList.add('box-shadow');
-        enterprise.classList.remove('box-shadow');
+      if (this.value < 20) {
+        free.classList.add("highlight");
+        pro.classList.remove("highlight");
+        enterprise.classList.remove("highlight");
+        free.classList.remove("box-shadow");
+        pro.classList.add("box-shadow");
+        enterprise.classList.add("box-shadow");
+      } else if (this.value >= 20 && this.value < 30) {
+        free.classList.remove("highlight");
+        pro.classList.add("highlight");
+        enterprise.classList.remove("highlight");
+        free.classList.add("box-shadow");
+        pro.classList.remove("box-shadow");
+        enterprise.classList.add("box-shadow");
+      } else if (this.value >= 30 && this.value <= 40) {
+        free.classList.remove("highlight");
+        pro.classList.remove("highlight");
+        enterprise.classList.add("highlight");
+        free.classList.add("box-shadow");
+        pro.classList.add("box-shadow");
+        enterprise.classList.remove("box-shadow");
       }
     };
   },
   methods: {
     handleSubmit() {
+      this.loading = true;
       const formData = new FormData();
       formData.append("firstname", this.form.name);
       formData.append("email", this.form.email);
@@ -168,9 +172,16 @@ export default {
         })
         .then((response) => {
           console.log(`Status code: ${response.status}`);
-          alert("created successfully");
+          this.loading = false;
+          if (response.status == 201) {
+            Swal.fire({
+              title: "Submitted successfully",
+              text: "Your form was submitted successfully!",
+              icon: "success",
+              confirmButtonText: "OK",
+            });
+          }
           this.$emit("close");
-          console.log(`Response data: ${response.data}`);
         })
         .catch((error) => {
           console.error(`Error making POST request: ${error}`);
@@ -180,14 +191,14 @@ export default {
 };
 </script>
 <style scoped>
-.highlight{
+.highlight {
   box-shadow: 0 0 10px #007bff;
 }
 .slidecontainer {
   width: 100%;
 }
 
-.card-holder{
+.card-holder {
   padding-top: 30px;
 }
 
@@ -235,10 +246,10 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
-.input-holder .label{
+.input-holder .label {
   flex: 0 0 20%;
 }
-.input-holder .input-field{
+.input-holder .input-field {
   flex: 0 0 80%;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -254,6 +265,7 @@ export default {
   position: absolute;
   top: -15px;
   right: -15px;
+  z-index: 9;
 }
 
 .popup-form .close-btn:hover {
@@ -274,5 +286,83 @@ export default {
 .close-icon {
   font-size: 1.5em;
   color: rgb(255, 255, 255);
+}
+.loader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(212, 212, 212);
+  z-index: 5;
+}
+
+.jimu-primary-loading:before,
+.jimu-primary-loading:after {
+  position: absolute;
+  top: 0;
+  content: "";
+}
+
+.jimu-primary-loading:before {
+  left: -19.992px;
+}
+
+.jimu-primary-loading:after {
+  left: 19.992px;
+  -webkit-animation-delay: 0.32s !important;
+  animation-delay: 0.32s !important;
+}
+
+.jimu-primary-loading:before,
+.jimu-primary-loading:after,
+.jimu-primary-loading {
+  background: #076fe5;
+  -webkit-animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+  animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+  width: 13.6px;
+  height: 32px;
+}
+
+.jimu-primary-loading {
+  text-indent: -9999em;
+  margin: auto;
+  position: absolute;
+  right: calc(50% - 6.8px);
+  top: calc(50% - 16px);
+  -webkit-animation-delay: 0.16s !important;
+  animation-delay: 0.16s !important;
+}
+
+@-webkit-keyframes loading-keys-app-loading {
+  0%,
+  80%,
+  100% {
+    opacity: 0.75;
+    box-shadow: 0 0 #076fe5;
+    height: 32px;
+  }
+
+  40% {
+    opacity: 1;
+    box-shadow: 0 -8px #076fe5;
+    height: 40px;
+  }
+}
+
+@keyframes loading-keys-app-loading {
+  0%,
+  80%,
+  100% {
+    opacity: 0.75;
+    box-shadow: 0 0 #076fe5;
+    height: 32px;
+  }
+
+  40% {
+    opacity: 1;
+    box-shadow: 0 -8px #076fe5;
+    height: 40px;
+  }
 }
 </style>
