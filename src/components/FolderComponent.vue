@@ -264,12 +264,13 @@ export default {
     deleteFolder() {
       this.folderData = {};
       this.folderName = "";
-      this.createFolderBool = false;
+      this.closeContextMenu();
     },
     editFolder() {
       this.folderData.name = this.editName;
       this.editName = "";
       this.editFolderBool = false;
+      this.closeContextMenu();
     },
   },
 };

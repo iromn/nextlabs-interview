@@ -38,17 +38,6 @@
           @keyup.enter="createFile"
         />
       </div>
-
-      <!-- <div
-        v-if="showMenu"
-        class="context-menu"
-        :style="{ top: `${menuY}px`, left: `${menuX}px` }"
-      >
-        <div><label>New Folder</label></div>
-        <div><label>New File</label></div>
-        <div><label>Edit</label></div>
-        <div><label>Delete</label></div>
-      </div> -->
     </div>
   </div>
 </template>
